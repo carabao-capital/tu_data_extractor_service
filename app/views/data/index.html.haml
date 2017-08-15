@@ -1,1 +1,12 @@
-<input type="text" class="datepicker" />
+= form_tag("/search", method: "post") do
+  = label_tag(:from_txn_date, "From:")
+  = text_field(:dates, :from_txn_date, class: "datepicker")
+  = label_tag(:to_txn_date, "To:")
+  = text_field(:dates, :to_txn_date, class: "datepicker")
+  = submit_tag("Search")
+
+%div
+  -if @results
+    Results here
+  -else
+    No Results
